@@ -87,7 +87,8 @@ def train(rank, args):
 
     # Initialize optimizer
     lr_scheduler = None
-    step_scheduler = None
+    step_scheduler = None 
+    #调整lr
     plan_cost_lr = hyperparams['cost_grad_scaler'] * hyperparams['learning_rate']
     optimizer = optim.Adam([{'params': model_registrar.get_all_but_name_match('map_encoder').parameters()},
                             {'params': model_registrar.get_name_match('map_encoder').parameters(),
